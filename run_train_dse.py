@@ -197,7 +197,7 @@ def create_argparser():
 
 
 if __name__ == "__main__":
-    dataset = 'cat2dog' #cat2dog/wild2dog/male2female/multi_afhq(mutli-domain)
+    dataset = 'male2female' #cat2dog/wild2dog/male2female/multi_afhq(mutli-domain)
     #defalut args
     args = create_argparser().parse_args()
     args.dataset = dataset
