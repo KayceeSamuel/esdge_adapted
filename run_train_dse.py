@@ -170,10 +170,10 @@ def split_microbatches(microbatch, *args):
 
 def create_argparser():
     defaults = dict(
-        dataset='cat2dog', # wild2dog/cat2dog/male2female/afhq
-        data_path=['data/afhq/train/cat', 'data/afhq/train/dog'],
+        dataset='male2female', # wild2dog/cat2dog/male2female/afhq
+        data_path=['/content/drive/MyDrive/esdge/data/train/male', '/content/drive/MyDrive/esdge/data/train/female'],
         pretrained=True,
-        pretrained_model='pretrained_model/256x256_classifier.pt',
+        pretrained_model='/content/drive/MyDrive/esdge/pretrained_model/256x256_classifier.pt',
         resmue=False,
         val_data_dir="",
         noised=True,
@@ -213,7 +213,8 @@ if __name__ == "__main__":
         args.num_class = 2
         args.iterations = 5000
     if dataset == 'male2female':
-        args.data_path = ['data/celeba_hq/train/male', 'data/celeba_hq/val/female']
+        # args.data_path = ['data/celeba_hq/train/male', 'data/celeba_hq/val/female']
+        args.data_path = ['/content/drive/MyDrive/esdge/data/train/male', '/content/drive/MyDrive/esdge/data/train/female']
         args.num_class = 2
         args.iterations = 5000
     if dataset == 'multi_afhq':
