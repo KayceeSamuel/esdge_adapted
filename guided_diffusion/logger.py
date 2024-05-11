@@ -451,8 +451,9 @@ def configure(dir=None, format_strs=None, comm=None, log_suffix=""):
             datetime.datetime.now().strftime("openai-%Y-%m-%d-%H-%M-%S-%f"),
         )
     assert isinstance(dir, str)
-    dir = os.path.expanduser(dir)
-    os.makedirs(os.path.expanduser(dir), exist_ok=True)
+    # dir = os.path.expanduser(dir) replace with the google drive directory
+    #os.makedirs(os.path.expanduser(dir), exist_ok=True)
+    dir = '/content/drive/MyDrive/esdge/trained_models/male2female/models'
 
     rank = get_rank_without_mpi_import()
     if rank > 0:

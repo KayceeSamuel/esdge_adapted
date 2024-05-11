@@ -139,7 +139,7 @@ def set_annealed_lr(opt, base_lr, frac_done):
 
 def save_model(mp_trainer, opt, step):
     #added to save file to google drive instead   
-    save_dir = os.path.join('/content/drive/MyDrive/esdge/trained_models/male2female/models')
+    save_dir = '/content/drive/MyDrive/esdge/trained_models/male2female/models'
     os.makedirs(save_dir, exist_ok=True)  # Create directory if it doesn't exist
 
     th.save(
