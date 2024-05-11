@@ -138,17 +138,25 @@ def set_annealed_lr(opt, base_lr, frac_done):
 
 
 def save_model(mp_trainer, opt, step):
-    th.save(
-        mp_trainer.master_params_to_state_dict(mp_trainer.master_params),
-        os.path.join(logger.get_dir(), f"model{step:06d}.pt"),
-    )
-    th.save(opt.state_dict(), os.path.join(logger.get_dir(), f"opt{step:06d}.pt"))
+    #added to save file to google drive instead   
+    save_dir = os.path.join('/content/drive/MyDrive/esdge/trained_models/male2female/models')
+    os.makedirs(save_dir, exist_ok=True)  # Create directory if it doesn't exist
 
     th.save(
         mp_trainer.master_params_to_state_dict(mp_trainer.master_params),
-        os.path.join(logger.get_dir(), f"model.pt"),
+        #os.path.join(logger.get_dir(), f"model{step:06d}.pt"), initial code
+        os.path.join(save_dir, f"model{step:06d}.pt"),
     )
-    th.save(opt.state_dict(), os.path.join(logger.get_dir(), f"opt.pt"))
+    # th.save(opt.state_dict(), os.path.join(logger.get_dir(), f"opt{step:06d}.pt"))
+    th.save(opt.state_dict(), os.path.join(save_dir, f"opt{step:06d}.pt"))
+
+    th.save(
+        mp_trainer.master_params_to_state_dict(mp_trainer.master_params),
+        # os.path.join(logger.get_dir(), f"model.pt"),
+        os.path.join(save_dir, f"model.pt"),
+    )
+    # th.save(opt.state_dict(), os.path.join(logger.get_dir(), f"opt.pt"))
+    th.save(opt.state_dict(), os.path.join(save_dir, f"opt.pt"))
 
 
 def compute_top_k(logits, labels, k, reduction="mean"):
