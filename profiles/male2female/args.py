@@ -1,8 +1,8 @@
 import argparse
 argsall = argparse.Namespace(
-    testdata_path='data/celeba_hq/val/male',
-    ckpt = 'pretrained_model/celebahq_female_ddpm.pth',
-    dsepath = 'pretrained_model/male2female_dse.pt',
+    testdata_path='/content/drive/MyDrive/esdge/data/test/male',
+    ckpt = '/content/drive/MyDrive/esdge/trained_models/male2female/models/model004500.pt', 
+    dsepath = '/content/drive/MyDrive/esdge/pretrained_model/256x256_classifier.pt',
     config_path = 'profiles/male2female/male2female.yml',
     t = 500,
     ls =  500.0,
